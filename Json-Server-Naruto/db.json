@@ -1,0 +1,132 @@
+{
+    "villages": [
+      {
+        "id": 1,
+        "name": "Hidden Leaf Village",
+        "country": "Land of Fire",
+        "leader": "Hokage",
+        "symbol": "🍃"
+      },
+      {
+        "id": 2,
+        "name": "Hidden Sand Village",
+        "country": "Land of Wind",
+        "leader": "Kazekage",
+        "symbol": "🏜️"
+      },
+      {
+        "id": 3,
+        "name": "Hidden Mist Village",
+        "country": "Land of Water",
+        "leader": "Mizukage",
+        "symbol": "🌊"
+      },
+      {
+        "id": 4,
+        "name": "Hidden Stone Village",
+        "country": "Land of Earth",
+        "leader": "Tsuchikage",
+        "symbol": "⛰️"
+      },
+      {
+        "id": 5,
+        "name": "Hidden Cloud Village",
+        "country": "Land of Lightning",
+        "leader": "Raikage",
+        "symbol": "⚡"
+      }
+    ],
+    "characters": [
+      {
+        "id": 1,
+        "name": "Naruto Uzumaki",
+        "rank": "Hokage",
+        "villageId": 1,
+        "chakraAffinity": "Wind",
+        "techniques": ["Rasengan", "Sage Mode", "Kurama Mode"],
+        "image": "https://i.pinimg.com/736x/9e/c6/e1/9ec6e148fd1a2a3c7a3eb6e4fbee48ba.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Sasuke Uchiha",
+        "rank": "Wandering Ninja",
+        "villageId": 1,
+        "chakraAffinity": "Lightning",
+        "techniques": ["Chidori", "Amaterasu", "Susanoo"],
+        "image": "https://e7.pngegg.com/pngimages/967/276/png-clipart-uchiha-sasuke-illustration-sasuke-uchiha-itachi-uchiha-madara-uchiha-gaara-naruto-uzumaki-uchiha-sasuke-black-hair-cartoons-thumbnail.png"
+      },
+      {
+        "id": 3,
+        "name": "Sakura Haruno",
+        "rank": "Jounin",
+        "villageId": 1,
+        "chakraAffinity": "Earth",
+        "techniques": ["Superhuman Strength", "Cell Regeneration"],
+        "image": "https://i.pinimg.com/736x/5e/7f/79/5e7f795f8f45bc925339e0b7cc2b5ba0.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Gaara",
+        "rank": "Kazekage",
+        "villageId": 2,
+        "chakraAffinity": "Earth",
+        "techniques": ["Sand Control", "Absolute Defense"],
+        "image": "https://p1.hiclipart.com/preview/833/798/494/gaara-3-png-clipart.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Killer Bee",
+        "rank": "Jinchūriki",
+        "villageId": 5,
+        "chakraAffinity": "Lightning",
+        "techniques": ["Lariat", "Tailed Beast Mode", "Seven Sword Style"],
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF1NnXv5fNypu2Z83l_LaAA2b2OZSFDpXeRg&s"
+      },
+      {
+        "id": 6,
+        "name": "Kakashi Hatake",
+        "rank": "Former Hokage",
+        "villageId": 1,
+        "chakraAffinity": "Lightning",
+        "techniques": ["Chidori", "Sharingan", "Raiden"],
+        "image": "https://i.pinimg.com/564x/f7/10/d7/f710d710f5c839445bf0248b2c21a3b3.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Itachi Uchiha",
+        "rank": "Anbu",
+        "villageId": 1,
+        "chakraAffinity": "Fire",
+        "techniques": ["Amaterasu", "Tsukuyomi", "Susanoo"],
+        "image": "https://e7.pngegg.com/pngimages/691/788/png-clipart-uchiha-itachi-illustration-itachi-uchiha-sasuke-uchiha-madara-uchiha-obito-uchiha-killer-bee-naruto-pain-black-hair-hand-thumbnail.png"
+      },
+      {
+        "id": 8,
+        "name": "Mei Terumi",
+        "rank": "Mizukage",
+        "villageId": 3,
+        "chakraAffinity": "Water",
+        "techniques": ["Lava Style", "Vapor Style"],
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyc83cgf9Pcp2REZW2uSJQlyY9RReHmk9MBw&s"
+      },
+      {
+        "id": 9,
+        "name": "Ōnoki",
+        "rank": "Tsuchikage",
+        "villageId": 4,
+        "chakraAffinity": "Earth",
+        "techniques": ["Dust Release", "Flight"],
+        "image": "https://p7.hiclipart.com/preview/353/28/27/mei-terum%C4%AB-deidara-%C5%8Cnoki-tsuchikage-naruto-naruto-thumbnail.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Darui",
+        "rank": "Raikage",
+        "villageId": 5,
+        "chakraAffinity": "Lightning",
+        "techniques": ["Black Lightning", "Storm Release"],
+        "image": "https://p7.hiclipart.com/preview/268/169/79/darui-orochimaru-cosplay-costume-cosplay-thumbnail.jpg"
+      }
+    ]
+  }
+  
