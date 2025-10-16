@@ -1,10 +1,11 @@
-const { fromEvent } = rxjs;
-const { map, debounceTime, distinctUntilChanged } = rxjs.operators;
+const { fromEvent, from } = rxjs;
+const { map, debounceTime, distinctUntilChanged, switchMap, combineLatestWith } = rxjs.operators;
+const { fromFetch } = rxjs.fetch;
 
 let allCharacters = [];
 let allVillages = [];
 
-async function initApp() {
+function initApp() {
     const appElement = document.getElementById('app');
     if (!appElement) return;
 
@@ -25,24 +26,31 @@ async function initApp() {
     content.id = 'content';
     appElement.appendChild(content);
 
+    loadData().then(() => showCharacters(content));
+
     btnCharacters.addEventListener('click', () => showCharacters(content));
     btnVillages.addEventListener('click', () => showVillages(content));
-
-    await loadData();
-    showCharacters(content);
 }
 
 async function loadData() {
-    const [charactersRes, villagesRes] = await Promise.all([
-        fetch('http://localhost:3000/characters'),
-        fetch('http://localhost:3000/villages')
-    ]);
-    allCharacters = await charactersRes.json();
-    allVillages = await villagesRes.json();
+    const characters$ = fromFetch('http://localhost:3000/characters').pipe(
+        switchMap(res => res.json())
+    );
+    const villages$ = fromFetch('http://localhost:3000/villages').pipe(
+        switchMap(res => res.json())
+    );
+    const data = await new Promise(resolve => {
+        characters$.pipe(combineLatestWith(villages$)).subscribe(([characters, villages]) => {
+            allCharacters = characters;
+            allVillages = villages;
+            resolve();
+        });
+    });
 }
 
-async function showCharacters(container) {
+function showCharacters(container) {
     container.innerHTML = '';
+
     const filterContainer = document.createElement('div');
     filterContainer.className = 'filter-container';
 
@@ -57,15 +65,17 @@ async function showCharacters(container) {
     container.appendChild(filterContainer);
     container.appendChild(gridContainer);
 
-    const enriched = await Promise.all(
-        allCharacters.map(async c => {
+    const enriched$ = from(allCharacters).pipe(
+        switchMap(async c => {
             const res = await fetch(`http://localhost:3000/villages/${c.villageId}`);
             const v = await res.json();
             return { ...c, villageName: v.name };
         })
     );
 
-    enriched.forEach(character => {
+    const enriched = [];
+    enriched$.subscribe(character => {
+        enriched.push(character);
         const card = renderCharacter(character);
         gridContainer.appendChild(card);
     });
@@ -93,7 +103,7 @@ function showVillages(container) {
     const gridContainer = document.createElement('div');
     gridContainer.className = 'grid-container';
     container.appendChild(gridContainer);
-    allVillages.forEach(village => {
+    from(allVillages).subscribe(village => {
         const card = renderVillage(village);
         gridContainer.appendChild(card);
     });
